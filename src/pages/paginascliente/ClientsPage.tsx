@@ -131,7 +131,7 @@ const ClientsPage: React.FC = () => {
             variant="primary"
             className="w-full sm:w-auto"
           >
-            + Nuevo Cliente
+            + Nuevo cliente
           </Button>
         </div>
 
