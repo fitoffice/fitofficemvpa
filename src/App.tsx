@@ -95,18 +95,11 @@ function AppContent() {
     currentPlanningId
   } = useExercise();
   console.log('Exercise Details:', {
-<<<<<<< HEAD
     exerciseId: selectedExercise?.id || 'No exercise selected',
     exerciseName: selectedExercise?.nombre || 'N/A',
     periodId: currentPeriodId || 'No period ID',
     planningId: currentPlanningId || 'No planning ID',
     periodIndex: currentPeriodIndex !== undefined ? currentPeriodIndex : 'No period index'
-=======
-    exerciseId: selectedExercise?.id,
-    periodId: currentPeriodId,
-    planningId: currentPlanningId,
-    periodIndex: currentPeriodIndex
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   });
 
 
@@ -258,13 +251,9 @@ function App() {
                                                   <DietProvider>
                                                     <RoutineCreationProvider>
                                                       <AlertProvider>
-<<<<<<< HEAD
                                                           <FilterProvider>
                                                             <AppContent />
                                                           </FilterProvider>
-=======
-                                                      <AppContent />
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                                                       </AlertProvider>
                                                     </RoutineCreationProvider>
                                                   </DietProvider>

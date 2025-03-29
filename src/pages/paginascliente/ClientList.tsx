@@ -6,10 +6,7 @@ import PanelCliente from '../../components/Clients/PanelCliente';
 import ClientListHeader from '../../components/Clients/ClientListHeader';
 import ClientListViewSimple from '../../components/Clients/ClientListViewSimple';
 import { Cliente } from '../../services/clientService';
-<<<<<<< HEAD
 import { useFilters } from '../../contexts/FilterContext';
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
 // ⬇ NO BORRAMOS NADA DE TU CÓDIGO, SOLO IMPORTAMOS EL CONTEXTO
 import { useClientContext } from '../../contexts/ClientContext';
@@ -32,12 +29,8 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
   const { theme } = useTheme();
 
   // ⬇ Obtenemos "clients" del contexto (donde se añaden clientes creados con addClient)
-<<<<<<< HEAD
   const { clients: contextClients, refreshClients } = useClientContext();
   const { filters, setFilters, isFilterActive } = useFilters();
-=======
-  const { clients: contextClients } = useClientContext();
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   // ⬇ Mantenemos tu arreglo local y tu fetch
   const [clientesData, setClientesData] = useState<Cliente[]>([]);
@@ -48,17 +41,7 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
   const [openPanels, setOpenPanels] = useState<string[]>([]);
   const [filterOpen, setFilterOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'table' | 'simple'>('table');
-<<<<<<< HEAD
 
-=======
-  const [filters, setFilters] = useState<Filters>({
-    estado: '',
-    tag: '',
-    tipoPlan: '',
-    clase: '',
-    servicio: '',
-  });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const [serviciosData, setServiciosData] = useState<{ [key: string]: string }>({});
   const [planesDePagoData, setPlanesDePagoData] = useState<{ [key: string]: string }>({});
 
@@ -123,7 +106,6 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
 
     fetchClientes();
   }, []);
-<<<<<<< HEAD
   
   // Efecto para recargar clientes cuando cambia el contexto
   useEffect(() => {
@@ -185,8 +167,6 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
     reloadClientsAfterCreation();
   }, [contextClients.length]);
 
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   // ⬇ 2) Efecto para obtener servicios (sin cambios)
   useEffect(() => {
@@ -288,22 +268,6 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
     }
   }, [clientesData]);
 
-<<<<<<< HEAD
-=======
-  // ⬇ 4) useEffect para detectar nuevos clientes en el contexto y agregarlos a tu arreglo local
-  useEffect(() => {
-    contextClients.forEach((ctxClient) => {
-      // Comprobamos si ya existe en clientesData
-      const existe = clientesData.some((c) => c._id === ctxClient._id);
-      if (!existe) {
-        // Agregamos al final para que aparezca abajo
-        // (Si lo quieres arriba, usa [ctxClient, ...prev])
-        console.log('Agregando nuevo cliente desde el contexto:', ctxClient);
-        setClientesData((prev) => [...prev, ctxClient]);
-      }
-    });
-  }, [contextClients, clientesData]);
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   const formatDate = (dateString: string) => {
     if (!dateString) return '-';
@@ -357,7 +321,6 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
   };
 
   const filteredClients = clientesData.filter((client) => {
-<<<<<<< HEAD
     // Primero verificamos el término de búsqueda
     if (searchTerm) {
       const searchLower = searchTerm.toLowerCase();
@@ -421,24 +384,6 @@ const ClientList: React.FC<ClientListProps> = ({ onCreateClient }) => {
     return true;
   });
     useEffect(() => {
-=======
-    // First check if there's a search term
-    if (!searchTerm) return true;
-
-    // Convert search term to lowercase for case-insensitive comparison
-    const searchLower = searchTerm.toLowerCase();
-
-    // Check specific fields we want to search through
-    return (
-      (client.nombre && client.nombre.toLowerCase().includes(searchLower)) ||
-      (client.email && client.email.toLowerCase().includes(searchLower)) ||
-      (client.telefono && client.telefono.toLowerCase().includes(searchLower)) ||
-      (client.estado && client.estado.toLowerCase().includes(searchLower))
-    );
-  });
-
-  useEffect(() => {
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     console.log(` Filtrando clientes con término de búsqueda: "${searchTerm}" y filtros:`, filters);
   }, [searchTerm, filters, clientesData]);
 
