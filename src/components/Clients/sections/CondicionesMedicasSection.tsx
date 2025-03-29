@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 import { Heart, Plus, X } from 'lucide-react';
 import SectionHeader from '../common/SectionHeader';
 import Button from '../../Common/Button';
@@ -13,33 +9,22 @@ interface CondicionesMedicasSectionProps {
   theme: string;
   errors: any;
   isLoading: boolean;
-<<<<<<< HEAD
   clientId?: string; // Add clientId prop
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   onSave: () => void;
   onChange: (condiciones: string[]) => void;
 }
 
 const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
-<<<<<<< HEAD
   condiciones = [], // Add default empty array
-=======
-  condiciones,
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   editMode,
   theme,
   errors,
   isLoading,
-<<<<<<< HEAD
   clientId,
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   onSave,
   onChange,
 }) => {
   const [nuevaCondicion, setNuevaCondicion] = useState('');
-<<<<<<< HEAD
   const [localCondiciones, setLocalCondiciones] = useState<string[]>([]);
   const [isSaving, setIsSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
@@ -57,26 +42,15 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
       setNuevaCondicion('');
       console.log('Condición añadida:', nuevaCondicion.trim());
       console.log('Condiciones actualizadas:', updatedCondiciones);
-=======
-
-  const handleAddCondicion = () => {
-    if (nuevaCondicion.trim() && !condiciones.includes(nuevaCondicion.trim())) {
-      onChange([...condiciones, nuevaCondicion.trim()]);
-      setNuevaCondicion('');
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     }
   };
 
   const handleRemoveCondicion = (index: number) => {
-<<<<<<< HEAD
     const updatedCondiciones = localCondiciones.filter((_, i) => i !== index);
     setLocalCondiciones(updatedCondiciones);
     onChange(updatedCondiciones);
     console.log('Condición eliminada en índice:', index);
     console.log('Condiciones actualizadas:', updatedCondiciones);
-=======
-    onChange(condiciones.filter((_, i) => i !== index));
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -86,7 +60,6 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
     }
   };
 
-<<<<<<< HEAD
   // Function to save directly to API
   const handleSave = async () => {
     if (!clientId) {
@@ -125,8 +98,6 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
     }
   };
 
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const inputClasses = `
     w-full p-3 rounded-lg border-2 
     ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}
@@ -150,7 +121,6 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
         Icon={Heart}
         theme={theme}
         editMode={editMode}
-<<<<<<< HEAD
         onSave={handleSave}
         isLoading={isLoading || isSaving}
         iconColor="red"
@@ -162,13 +132,6 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
           </div>
         )}
         
-=======
-        onSave={onSave}
-        isLoading={isLoading}
-        iconColor="red"
-      />
-      <div className="p-6">
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         {editMode && (
           <div className="mb-4">
             <div className="flex space-x-2">
@@ -203,21 +166,13 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
         )}
 
         <div className="space-y-2">
-<<<<<<< HEAD
           {localCondiciones.length === 0 ? (
-=======
-          {condiciones.length === 0 ? (
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             <p className={`text-center py-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
               No hay condiciones médicas registradas
             </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-<<<<<<< HEAD
               {localCondiciones.map((condicion, index) => (
-=======
-              {condiciones.map((condicion, index) => (
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 <div
                   key={index}
                   className={`
@@ -252,8 +207,4 @@ const CondicionesMedicasSection: React.FC<CondicionesMedicasSectionProps> = ({
   );
 };
 
-<<<<<<< HEAD
 export default CondicionesMedicasSection;
-=======
-export default CondicionesMedicasSection;
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c

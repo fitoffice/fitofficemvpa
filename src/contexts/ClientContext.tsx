@@ -56,7 +56,6 @@ export const ClientProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
 
   return (
-<<<<<<< HEAD
     <ClientContext.Provider value={{ 
       clients, 
       loading, 
@@ -65,9 +64,6 @@ export const ClientProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       addClient,
       refreshClients // Añadimos la nueva función al contexto
     }}>
-=======
-    <ClientContext.Provider value={{ clients, loading, error, fetchClients, addClient }}>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
       {children}
     </ClientContext.Provider>
   );

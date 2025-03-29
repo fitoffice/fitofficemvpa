@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-import React from 'react';
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 import { Share2, Instagram, Facebook, Twitter } from 'lucide-react';
 import SectionHeader from '../common/SectionHeader';
 
@@ -18,10 +14,7 @@ interface RedesSocialesSectionProps {
   theme: string;
   errors: any;
   isLoading: boolean;
-<<<<<<< HEAD
   clientId: string; // Añadido clientId como prop
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   onSave: () => void;
   onChange: (redes: RedesSocialesData) => void;
 }
@@ -32,7 +25,6 @@ const RedesSocialesSection: React.FC<RedesSocialesSectionProps> = ({
   theme,
   errors,
   isLoading,
-<<<<<<< HEAD
   clientId, // Añadido clientId
   onSave,
   onChange,
@@ -109,16 +101,6 @@ const RedesSocialesSection: React.FC<RedesSocialesSectionProps> = ({
     } finally {
       setIsSaving(false);
     }
-=======
-  onSave,
-  onChange,
-}) => {
-  const handleChange = (field: keyof RedesSocialesData, value: string) => {
-    onChange({
-      ...redes,
-      [field]: value.trim() || undefined
-    });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const inputClasses = `
@@ -170,16 +152,11 @@ const RedesSocialesSection: React.FC<RedesSocialesSectionProps> = ({
       backdrop-blur-sm
       overflow-hidden
     `}>
-<<<<<<< HEAD
             <SectionHeader
-=======
-      <SectionHeader
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         title="Redes Sociales"
         Icon={Share2}
         theme={theme}
         editMode={editMode}
-<<<<<<< HEAD
         onSave={handleSave} // Cambiado a nuestra nueva función
         isLoading={isLoading || isSaving}
         iconColor="purple"
@@ -194,22 +171,10 @@ const RedesSocialesSection: React.FC<RedesSocialesSectionProps> = ({
         {socialNetworks.map(network => {
             const NetworkIcon = network.icon;
             const value = localRedes[network.name as keyof RedesSocialesData] || '';
-=======
-        onSave={onSave}
-        isLoading={isLoading}
-        iconColor="purple"
-      />
-      <div className="p-6">
-        <div className="space-y-6">
-          {socialNetworks.map(network => {
-            const NetworkIcon = network.icon;
-            const value = redes[network.name as keyof RedesSocialesData];
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             const error = errors?.[network.name];
 
             return (
               <div key={network.name} className="space-y-1">
-<<<<<<< HEAD
               <label className={labelClasses}>
                 <div className="flex items-center space-x-2">
                   <NetworkIcon className={`w-4 h-4 text-${network.color}-500`} />
@@ -217,24 +182,11 @@ const RedesSocialesSection: React.FC<RedesSocialesSectionProps> = ({
                 </div>
               </label>
 
-=======
-                <label className={labelClasses}>
-                  <div className="flex items-center space-x-2">
-                    <NetworkIcon className={`w-4 h-4 text-${network.color}-500`} />
-                    <span>{network.label}</span>
-                  </div>
-                </label>
-                
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 {editMode ? (
                   <div className="relative">
                     <input
                       type="text"
-<<<<<<< HEAD
                       value={value}
-=======
-                      value={value || ''}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       onChange={e => handleChange(network.name as keyof RedesSocialesData, e.target.value)}
                       placeholder={network.placeholder}
                       className={`

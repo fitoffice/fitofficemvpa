@@ -49,13 +49,9 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-<<<<<<< HEAD
   const [scheduleId, setScheduleId] = useState<string | null>(null);
   
    useEffect(() => {
-=======
-  useEffect(() => {
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     const fetchHorarios = async () => {
       try {
         setIsFetching(true);
@@ -96,7 +92,6 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
           if (result.data.diasEspeciales) {
             setDiasEspeciales(result.data.diasEspeciales);
           }
-<<<<<<< HEAD
           
           // Store the schedule ID if it exists
           if (result.data._id) {
@@ -115,8 +110,6 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
           
           setScheduleId(result._id);
           console.log('Schedule ID found (alt):', result._id);
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         }
         
       } catch (err) {
@@ -129,10 +122,7 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
     
     fetchHorarios();
   }, []);
-<<<<<<< HEAD
   
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const handleSave = async () => {
     try {
       setIsLoading(true);
@@ -152,7 +142,6 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
         diasEspeciales
       };
       
-<<<<<<< HEAD
       console.log('Schedule ID before request:', scheduleId);
       
       // Determine if we're updating or creating
@@ -167,11 +156,6 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
       // Make the API request
       const response = await fetch(url, {
         method,
-=======
-      // Make the API request
-      const response = await fetch('https://fitoffice-a7ed6ea26ba4.herokuapp.com/api/horarios', {
-        method: 'POST',
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
@@ -181,19 +165,11 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
       
       if (!response.ok) {
         const errorData = await response.json();
-<<<<<<< HEAD
         throw new Error(errorData.message || `Error al ${scheduleId ? 'actualizar' : 'guardar'} los horarios`);
       }
       
       const result = await response.json();
       console.log(`Horarios ${scheduleId ? 'actualizados' : 'guardados'}:`, result);
-=======
-        throw new Error(errorData.message || 'Error al guardar los horarios');
-      }
-      
-      const result = await response.json();
-      console.log('Horarios guardados:', result);
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
       
       setSuccess(true);
       
@@ -203,27 +179,14 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
       }, 1500);
       
     } catch (err) {
-<<<<<<< HEAD
       console.error(`Error al ${scheduleId ? 'actualizar' : 'guardar'} horarios:`, err);
       setError(err instanceof Error ? err.message : `Error al ${scheduleId ? 'actualizar' : 'guardar'} los horarios`);
-=======
-      console.error('Error al guardar horarios:', err);
-      setError(err instanceof Error ? err.message : 'Error al guardar los horarios');
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     } finally {
       setIsLoading(false);
     }
   };
-<<<<<<< HEAD
  
-=======
-
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
-  const handleHorarioChange = (dia: string, turnoIndex: number, tipo: 'inicio' | 'fin', valor: string) => {
     setHorarios(prev => ({
-      ...prev,
-      [dia]: {
-        ...prev[dia],
         turnos: prev[dia].turnos.map((turno, index) => 
           index === turnoIndex ? { ...turno, [tipo]: valor } : turno
         )
@@ -449,11 +412,7 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
                               {horarios[dia].turnos.length > 1 && (
                                 <button
                                   onClick={() => eliminarTurno(dia, turnoIndex)}
-<<<<<<< HEAD
                                   className="p-2.5 bg-red-50 text-red-500 rounded-lg hover:bg-red-100 hover:rotate-12"
-=======
-                                  className="p-2.5 bg-red-50 text-red-500 rounded-lg hover:bg-red-100 transition-all duration-200 hover:scale-110 hover:rotate-12"
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                                   title="Eliminar turno"
                                 >
                                   <Trash className="w-4 h-4" />
@@ -583,11 +542,7 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
               className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <Save className="w-4 h-4" />
-<<<<<<< HEAD
               {scheduleId ? 'Actualizar Horario' : 'Guardar Horario'}
-=======
-              Guardar Horario
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             </button>
           </div>
         </div>

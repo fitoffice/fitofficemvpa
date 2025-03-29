@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
-=======
-import React from 'react';
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 import { User } from 'lucide-react';
 import SectionHeader from '../common/SectionHeader';
 
@@ -22,10 +18,7 @@ interface InfoBasicaSectionProps {
   isLoading: boolean;
   onSave: () => void;
   onChange: (data: InfoBasicaData) => void;
-<<<<<<< HEAD
   clientId: string;
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
@@ -36,7 +29,6 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
   isLoading,
   onSave,
   onChange,
-<<<<<<< HEAD
   clientId,
 }) => {
   // Local state to track input values
@@ -101,14 +93,6 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
     } catch (error) {
       console.error('Error saving basic info:', error);
     }
-=======
-}) => {
-  const handleChange = (field: keyof InfoBasicaData, value: string) => {
-    onChange({
-      ...data,
-      [field]: value
-    });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const inputClasses = `
@@ -141,11 +125,7 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
         Icon={User}
         theme={theme}
         editMode={editMode}
-<<<<<<< HEAD
         onSave={saveInfoBasica}
-=======
-        onSave={onSave}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         isLoading={isLoading}
         iconColor="blue"
       />
@@ -156,22 +136,13 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
             {editMode ? (
               <input
                 type="text"
-<<<<<<< HEAD
                 value={localData.nombre || ''}
                 onChange={(e) => handleChange('nombre', e.target.value)}
-=======
-                value={data.nombre}
-                onChange={e => handleChange('nombre', e.target.value)}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 className={`${inputClasses} ${errors?.nombre ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="Ingrese el nombre"
               />
             ) : (
-<<<<<<< HEAD
               <p className="text-lg font-semibold">{localData.nombre}</p>
-=======
-              <p className="text-lg font-semibold">{data.nombre}</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.nombre && (
               <p className={errorClasses}>{errors.nombre}</p>
@@ -183,22 +154,13 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
             {editMode ? (
               <input
                 type="email"
-<<<<<<< HEAD
                 value={localData.email || ''}
                 onChange={(e) => handleChange('email', e.target.value)}
-=======
-                value={data.email}
-                onChange={e => handleChange('email', e.target.value)}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 className={`${inputClasses} ${errors?.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="ejemplo@correo.com"
               />
             ) : (
-<<<<<<< HEAD
               <p className="text-lg">{localData.email}</p>
-=======
-              <p className="text-lg">{data.email}</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.email && (
               <p className={errorClasses}>{errors.email}</p>
@@ -210,21 +172,12 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
             {editMode ? (
               <input
                 type="date"
-<<<<<<< HEAD
                 value={localData.fechaNacimiento || ''}
                 onChange={(e) => handleChange('fechaNacimiento', e.target.value)}
                 className={`${inputClasses} ${errors?.fechaNacimiento ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
               />
             ) : (
               <p className="text-lg">{localData.fechaNacimiento ? new Date(localData.fechaNacimiento).toLocaleDateString() : ''}</p>
-=======
-                value={data.fechaNacimiento}
-                onChange={e => handleChange('fechaNacimiento', e.target.value)}
-                className={`${inputClasses} ${errors?.fechaNacimiento ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
-              />
-            ) : (
-              <p className="text-lg">{new Date(data.fechaNacimiento).toLocaleDateString()}</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.fechaNacimiento && (
               <p className={errorClasses}>{errors.fechaNacimiento}</p>
@@ -235,13 +188,8 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
             <label className={labelClasses}>Género</label>
             {editMode ? (
               <select
-<<<<<<< HEAD
                 value={localData.genero || 'Prefiero no decirlo'}
                 onChange={(e) => handleChange('genero', e.target.value as any)}
-=======
-                value={data.genero}
-                onChange={e => handleChange('genero', e.target.value)}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 className={`${inputClasses} ${errors?.genero ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
               >
                 <option value="Masculino">Masculino</option>
@@ -250,11 +198,7 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
                 <option value="Prefiero no decirlo">Prefiero no decirlo</option>
               </select>
             ) : (
-<<<<<<< HEAD
               <p className="text-lg">{localData.genero}</p>
-=======
-              <p className="text-lg">{data.genero}</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.genero && (
               <p className={errorClasses}>{errors.genero}</p>
@@ -266,22 +210,13 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
             {editMode ? (
               <input
                 type="tel"
-<<<<<<< HEAD
                 value={localData.telefono || ''}
                 onChange={(e) => handleChange('telefono', e.target.value)}
-=======
-                value={data.telefono}
-                onChange={e => handleChange('telefono', e.target.value)}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 className={`${inputClasses} ${errors?.telefono ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="+34 XXX XXX XXX"
               />
             ) : (
-<<<<<<< HEAD
               <p className="text-lg">{localData.telefono}</p>
-=======
-              <p className="text-lg">{data.telefono}</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.telefono && (
               <p className={errorClasses}>{errors.telefono}</p>
@@ -299,15 +234,9 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
             {isLoading && (
               <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-500 border-t-transparent" />
             )}
-<<<<<<< HEAD
             <span className="font-medium">{localData.nombre || ''}</span>
             <span className="text-gray-500">•</span>
             <span className="text-sm text-gray-500">{localData.email || ''}</span>
-=======
-            <span className="font-medium">{data.nombre}</span>
-            <span className="text-gray-500">•</span>
-            <span className="text-sm text-gray-500">{data.email}</span>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           </div>
         </div>
       </div>
@@ -315,8 +244,4 @@ const InfoBasicaSection: React.FC<InfoBasicaSectionProps> = ({
   );
 };
 
-<<<<<<< HEAD
 export default InfoBasicaSection;
-=======
-export default InfoBasicaSection;
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c

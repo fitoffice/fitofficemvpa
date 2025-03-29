@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Ruler } from 'lucide-react';
 import SectionHeader from '../common/SectionHeader';
@@ -7,15 +6,6 @@ import SectionHeader from '../common/SectionHeader';
 interface InfoFisicaData {
   altura: number;
   peso: number | { valor: number; fecha: string; _id: string } | Array<{ valor: number; fecha: string; _id: string }>;
-=======
-import React from 'react';
-import { Ruler } from 'lucide-react';
-import SectionHeader from '../common/SectionHeader';
-
-interface InfoFisicaData {
-  altura: number;
-  peso: number;
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 interface InfoFisicaSectionProps {
@@ -24,10 +14,7 @@ interface InfoFisicaSectionProps {
   theme: string;
   errors: any;
   isLoading: boolean;
-<<<<<<< HEAD
   clientId: string;
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   onSave: () => void;
   onChange: (data: InfoFisicaData) => void;
 }
@@ -38,7 +25,6 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
   theme,
   errors,
   isLoading,
-<<<<<<< HEAD
   clientId,
   onSave,
   onChange,
@@ -135,16 +121,6 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
     } finally {
       setIsSaving(false);
     }
-=======
-  onSave,
-  onChange,
-}) => {
-  const handleChange = (field: keyof InfoFisicaData, value: string) => {
-    onChange({
-      ...data,
-      [field]: parseFloat(value) || 0
-    });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const inputClasses = `
@@ -164,17 +140,11 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
   const errorClasses = "text-sm text-red-500 mt-1 animate-pulse";
 
   const calculateIMC = () => {
-<<<<<<< HEAD
     const pesoValue = typeof localData.peso === 'number' ? localData.peso : getPesoValue(localData.peso);
     
     if (localData.altura && pesoValue) {
       const alturaEnMetros = localData.altura / 100;
       const imc = pesoValue / (alturaEnMetros * alturaEnMetros);
-=======
-    if (data.altura && data.peso) {
-      const alturaEnMetros = data.altura / 100;
-      const imc = data.peso / (alturaEnMetros * alturaEnMetros);
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
       return imc.toFixed(1);
     }
     return null;
@@ -189,14 +159,11 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
 
   const imc = calculateIMC();
   const imcCategory = imc ? getIMCCategory(parseFloat(imc)) : null;
-<<<<<<< HEAD
   
   // Get the current peso value for display
   const currentPesoValue = typeof localData.peso === 'number' 
     ? localData.peso 
     : getPesoValue(localData.peso);
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   return (
     <section className={`
@@ -212,7 +179,6 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
         Icon={Ruler}
         theme={theme}
         editMode={editMode}
-<<<<<<< HEAD
         onSave={handleSave}
         isLoading={isLoading || isSaving}
         iconColor="green"
@@ -223,24 +189,13 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
             {saveError}
           </div>
         )}
-=======
-        onSave={onSave}
-        isLoading={isLoading}
-        iconColor="green"
-      />
-      <div className="p-6">
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-1">
             <label className={labelClasses}>Altura (cm)</label>
             {editMode ? (
               <input
                 type="number"
-<<<<<<< HEAD
                 value={localData.altura || ''}
-=======
-                value={data.altura || ''}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 onChange={e => handleChange('altura', e.target.value)}
                 className={`${inputClasses} ${errors?.altura ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="Ingrese la altura en cm"
@@ -248,11 +203,7 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
                 step="1"
               />
             ) : (
-<<<<<<< HEAD
               <p className="text-lg">{localData.altura} cm</p>
-=======
-              <p className="text-lg">{data.altura} cm</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.altura && (
               <p className={errorClasses}>{errors.altura}</p>
@@ -264,11 +215,7 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
             {editMode ? (
               <input
                 type="number"
-<<<<<<< HEAD
                 value={currentPesoValue || ''}
-=======
-                value={data.peso || ''}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 onChange={e => handleChange('peso', e.target.value)}
                 className={`${inputClasses} ${errors?.peso ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="Ingrese el peso en kg"
@@ -276,11 +223,7 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
                 step="0.1"
               />
             ) : (
-<<<<<<< HEAD
               <p className="text-lg">{currentPesoValue} kg</p>
-=======
-              <p className="text-lg">{data.peso} kg</p>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.peso && (
               <p className={errorClasses}>{errors.peso}</p>
@@ -288,11 +231,7 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
           </div>
         </div>
 
-<<<<<<< HEAD
         {localData.altura && currentPesoValue > 0 && (
-=======
-        {imc && (
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           <div className={`
             mt-6 p-4 rounded-lg
             ${theme === 'dark' ? 'bg-gray-700/50' : 'bg-gray-100/50'}
@@ -302,7 +241,6 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-medium">IMC (Índice de Masa Corporal)</span>
-<<<<<<< HEAD
                 <span className="text-lg font-bold">{calculateIMC()}</span>
               </div>
               {imc && (
@@ -313,18 +251,6 @@ const InfoFisicaSection: React.FC<InfoFisicaSectionProps> = ({
                   inline-flex items-center space-x-1 self-start
                 `}>
                   <span>{imcCategory?.text}</span>
-=======
-                <span className="text-lg font-bold">{imc}</span>
-              </div>
-              {imcCategory && (
-                <div className={`
-                  px-3 py-1 rounded-full text-sm font-medium
-                  bg-${imcCategory.color}-500/20 text-${imcCategory.color}-600
-                  dark:bg-${imcCategory.color}-500/30 dark:text-${imcCategory.color}-400
-                  inline-flex items-center space-x-1 self-start
-                `}>
-                  <span>{imcCategory.text}</span>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 </div>
               )}
             </div>

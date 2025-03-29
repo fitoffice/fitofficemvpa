@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Tag, Plus, X, CheckCircle, XCircle, Edit2 } from 'lucide-react';
 import SectionHeader from '../common/SectionHeader';
 import Button from '../../Common/Button';
 import { toast } from 'react-hot-toast';
-=======
-import React, { useState } from 'react';
-import { Tag, Plus, X, CheckCircle, XCircle } from 'lucide-react';
-import SectionHeader from '../common/SectionHeader';
-import Button from '../../Common/Button';
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
 interface Tag {
   name: string;
@@ -20,44 +13,29 @@ interface Tag {
 interface TagsSectionProps {
   tags: Tag[];
   activo: boolean;
-<<<<<<< HEAD
   estado?: string;
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   editMode: boolean;
   theme: string;
   errors: any;
   isLoading: boolean;
-<<<<<<< HEAD
   clientId?: string;
   onSave: () => void;
   onChange: (data: { tags: Tag[]; activo: boolean; estado?: string }) => void;
-=======
-  onSave: () => void;
-  onChange: (data: { tags: Tag[]; activo: boolean }) => void;
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 const TagsSection: React.FC<TagsSectionProps> = ({
   tags,
   activo,
-<<<<<<< HEAD
   estado = 'Pendiente',
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   editMode,
   theme,
   errors,
   isLoading,
-<<<<<<< HEAD
   clientId,
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   onSave,
   onChange,
 }) => {
   const [nuevoTag, setNuevoTag] = useState('');
-<<<<<<< HEAD
   const [selectedColor, setSelectedColor] = useState('#6366f1');
   const [editingTag, setEditingTag] = useState<{ index: number; tag: Tag } | null>(null);
   const [localEstado, setLocalEstado] = useState(estado);
@@ -94,22 +72,10 @@ const TagsSection: React.FC<TagsSectionProps> = ({
       setSelectedColor('#6366f1');
       
       console.log('Tag added locally:', newTag);
-=======
-  const [selectedColor, setSelectedColor] = useState('#6366f1'); // Default indigo color
-
-  const handleAddTag = () => {
-    if (nuevoTag.trim() && !tags.some(tag => tag.name === nuevoTag.trim())) {
-      onChange({ 
-        tags: [...tags, { name: nuevoTag.trim(), color: selectedColor }], 
-        activo 
-      });
-      setNuevoTag('');
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     }
   };
 
   const handleRemoveTag = (index: number) => {
-<<<<<<< HEAD
     const updatedTags = localTags.filter((_, i) => i !== index);
     setLocalTags(updatedTags);
     
@@ -120,31 +86,20 @@ const TagsSection: React.FC<TagsSectionProps> = ({
     });
     
     console.log('Tag removed at index:', index);
-=======
-    onChange({
-      tags: tags.filter((_, i) => i !== index),
-      activo
-    });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-<<<<<<< HEAD
       if (editingTag) {
         handleSaveEditTag();
       } else {
         handleAddTag();
       }
-=======
-      handleAddTag();
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     }
   };
 
   const toggleActivo = () => {
-<<<<<<< HEAD
     onChange({ tags: localTags, activo: !activo, estado: localEstado });
   };
 
@@ -239,9 +194,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
     } finally {
       setIsSaving(false);
     }
-=======
-    onChange({ tags, activo: !activo });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const inputClasses = `
@@ -253,7 +205,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
     hover:border-indigo-400
   `;
 
-<<<<<<< HEAD
   const selectClasses = `
     w-full p-3 rounded-lg border-2 
     ${theme === 'dark' ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-200 text-gray-800'}
@@ -261,8 +212,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
     transition-all duration-300 ease-in-out
   `;
 
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   return (
     <section className={`
       rounded-xl border-2 
@@ -277,27 +226,18 @@ const TagsSection: React.FC<TagsSectionProps> = ({
         Icon={Tag}
         theme={theme}
         editMode={editMode}
-<<<<<<< HEAD
         onSave={handleSaveTags}
         isLoading={isLoading || isSaving}
-=======
-        onSave={onSave}
-        isLoading={isLoading}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         iconColor="indigo"
       />
       <div className="p-6">
         <div className="space-y-6">
-<<<<<<< HEAD
           {/* Estado section */}
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className={`font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                 Estado del Cliente
               </h3>
-<<<<<<< HEAD
             </div>
             {editMode ? (
               <select 
@@ -324,57 +264,12 @@ const TagsSection: React.FC<TagsSectionProps> = ({
           </div>
 
           {/* Tags section */}
-=======
-              <button
-                onClick={toggleActivo}
-                className={`
-                  relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 
-                  transition-colors duration-300 ease-in-out
-                  ${activo 
-                    ? 'bg-green-500 border-green-500' 
-                    : `${theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-gray-200 border-gray-200'}`}
-                  focus:outline-none focus:ring-2 focus:ring-green-500/50
-                `}
-                disabled={!editMode}
-              >
-                <span
-                  className={`
-                    pointer-events-none inline-block h-5 w-5 transform rounded-full 
-                    bg-white shadow-lg ring-0 transition duration-300 ease-in-out
-                    ${activo ? 'translate-x-5' : 'translate-x-0'}
-                  `}
-                />
-              </button>
-            </div>
-            <div className={`
-              flex items-center space-x-2 p-3 rounded-lg
-              ${theme === 'dark' ? 'bg-gray-700/50' : 'bg-gray-100/50'}
-              backdrop-blur-sm
-            `}>
-              {activo ? (
-                <>
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-green-500 font-medium">Cliente Activo</span>
-                </>
-              ) : (
-                <>
-                  <XCircle className="w-5 h-5 text-gray-500" />
-                  <span className="text-gray-500 font-medium">Cliente Inactivo</span>
-                </>
-              )}
-            </div>
-          </div>
-
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           <div>
             <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
               Tags
             </h3>
-<<<<<<< HEAD
             
             {/* Add new tag form */}
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             {editMode && (
               <div className="mb-4">
                 <div className="flex space-x-2">
@@ -384,11 +279,7 @@ const TagsSection: React.FC<TagsSectionProps> = ({
                       value={nuevoTag}
                       onChange={(e) => setNuevoTag(e.target.value)}
                       onKeyPress={handleKeyPress}
-<<<<<<< HEAD
                       placeholder={editingTag ? "Editar tag" : "Agregar nuevo tag"}
-=======
-                      placeholder="Agregar nuevo tag"
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       className={inputClasses}
                     />
                     <input
@@ -399,7 +290,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
                       title="Seleccionar color del tag"
                     />
                   </div>
-<<<<<<< HEAD
                   {editingTag ? (
                     <>
                       <Button
@@ -428,23 +318,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
                       <Plus className="w-5 h-5" />
                     </Button>
                   )}
-=======
-                  <Button
-                    variant="primary"
-                    onClick={handleAddTag}
-                    disabled={!nuevoTag.trim()}
-                    className={`
-                      flex-shrink-0
-                      bg-gradient-to-r from-indigo-500 to-indigo-600
-                      hover:from-indigo-600 hover:to-indigo-700
-                      shadow-lg hover:shadow-xl
-                      transform transition-all duration-300 ease-in-out
-                      hover:scale-105 active:scale-95
-                    `}
-                  >
-                    <Plus className="w-5 h-5" />
-                  </Button>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 </div>
                 {errors?.tags && (
                   <p className="text-sm text-red-500 mt-2 animate-pulse">{errors.tags}</p>
@@ -452,7 +325,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
               </div>
             )}
 
-<<<<<<< HEAD
             {/* Tags list */}
             {localTags.length === 0 ? (
               <p className={`text-center w-full py-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -467,20 +339,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
                       flex items-center justify-between px-3 py-2 rounded-lg text-sm
                       transition-all duration-300 ease-in-out
                       ${editMode ? 'w-full' : 'rounded-full inline-flex'}
-=======
-            <div className="flex flex-wrap gap-2">
-              {tags.length === 0 ? (
-                <p className={`text-center w-full py-4 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-                  No hay tags agregados
-                </p>
-              ) : (
-                tags.map((tag, index) => (
-                  <div
-                    key={index}
-                    className={`
-                      flex items-center space-x-1 px-3 py-1 rounded-full text-sm
-                      transition-all duration-300 ease-in-out
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                     `}
                     style={{
                       backgroundColor: `${tag.color}20`,
@@ -489,7 +347,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
                   >
                     <span>{tag.name}</span>
                     {editMode && (
-<<<<<<< HEAD
                       <div className="flex space-x-2">
                         <button
                           onClick={() => handleEditTag(tag, index)}
@@ -511,24 +368,6 @@ const TagsSection: React.FC<TagsSectionProps> = ({
                 ))}
               </div>
             )}
-=======
-                      <button
-                        onClick={() => handleRemoveTag(index)}
-                        className={`
-                          ml-1 rounded-full p-0.5
-                          opacity-0 group-hover:opacity-100
-                          hover:bg-black/10
-                          transition-all duration-300 ease-in-out
-                        `}
-                      >
-                        <X className="w-3 h-3" />
-                      </button>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           </div>
         </div>
       </div>
@@ -536,8 +375,4 @@ const TagsSection: React.FC<TagsSectionProps> = ({
   );
 };
 
-<<<<<<< HEAD
 export default TagsSection;
-=======
-export default TagsSection;
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c

@@ -88,7 +88,6 @@ export default function CalendarioSidebar({
   );
 
   const getEventosCount = (categoriaId: string) => {
-<<<<<<< HEAD
     // Reemplazar la simulación con conteo real de eventos
     if (window.calendarEvents) {
       return window.calendarEvents.filter(
@@ -96,14 +95,6 @@ export default function CalendarioSidebar({
       ).length;
     }
     return 0;
-=======
-    // Simulamos un conteo de eventos por categoría
-    const counts: Record<string, number> = {
-      'entrenamiento': 15,
-      'nutricion': 8
-    };
-    return counts[categoriaId] || 0;
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const calendarTypes = [
