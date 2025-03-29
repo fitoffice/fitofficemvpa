@@ -186,7 +186,11 @@ export default function HorarioEntrenadorModal({ onClose }: HorarioEntrenadorMod
     }
   };
  
+  const handleHorarioChange = (dia: string, turnoIndex: number, tipo: 'inicio' | 'fin', valor: string) => {
     setHorarios(prev => ({
+      ...prev,
+      [dia]: {
+        ...prev[dia],
         turnos: prev[dia].turnos.map((turno, index) => 
           index === turnoIndex ? { ...turno, [tipo]: valor } : turno
         )
