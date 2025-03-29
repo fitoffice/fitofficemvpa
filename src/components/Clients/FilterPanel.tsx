@@ -2,10 +2,7 @@ import React from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
-<<<<<<< HEAD
 import { useFilters } from '../../contexts/FilterContext';
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
 interface Filters {
   estado: string;
@@ -16,22 +13,14 @@ interface Filters {
 }
 
 interface FilterPanelProps {
-<<<<<<< HEAD
   // Mantenemos las props para compatibilidad, pero usaremos el contexto
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   filters: Filters;
   setFilters: (filters: Filters) => void;
 }
 
-<<<<<<< HEAD
 const FilterPanel: React.FC<FilterPanelProps> = ({ filters: propFilters, setFilters: propSetFilters }) => {
   const { theme } = useTheme();
   const { filters, setFilters } = useFilters();
-=======
-const FilterPanel: React.FC<FilterPanelProps> = ({ filters, setFilters }) => {
-  const { theme } = useTheme();
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   const filterOptions = {
     estado: ['Activo', 'Inactivo', 'Pendiente'],
@@ -42,14 +31,10 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ filters, setFilters }) => {
   };
 
   const handleFilterChange = (key: keyof Filters, value: string) => {
-<<<<<<< HEAD
     // Actualizamos los filtros en el contexto
     setFilters({ ...filters, [key]: value === filters[key] ? '' : value });
     // También actualizamos las props para mantener compatibilidad
     propSetFilters({ ...propFilters, [key]: value === propFilters[key] ? '' : value });
-=======
-    setFilters({ ...filters, [key]: value === filters[key] ? '' : value });
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   return (

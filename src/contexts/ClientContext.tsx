@@ -7,10 +7,7 @@ interface ClientContextType {
   error: string | null;
   fetchClients: () => Promise<void>;
   addClient: (client: Cliente) => void;
-<<<<<<< HEAD
   refreshClients: () => Promise<void>; // Nueva función para recargar clientes
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 const ClientContext = createContext<ClientContextType | undefined>(undefined);
@@ -36,7 +33,6 @@ export const ClientProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   };
 
-<<<<<<< HEAD
   // Nueva función que hace lo mismo que fetchClients pero con un nombre más descriptivo
   // para el caso específico de recargar después de crear un cliente
   const refreshClients = async () => {
@@ -44,8 +40,6 @@ export const ClientProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     await fetchClients();
   };
 
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const addClient = (client: Cliente) => {
     setClients(prevClients => [client, ...prevClients]);
     console.log('ClientContext: Added new client:', client);

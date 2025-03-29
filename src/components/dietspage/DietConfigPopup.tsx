@@ -124,7 +124,6 @@ export default function DietConfigPopup({
 
   if (!isOpen) return null;
 
-<<<<<<< HEAD
   const handleSave = async () => {
     try {
       // Get the token from localStorage
@@ -168,12 +167,6 @@ export default function DietConfigPopup({
     }
   };
   
-=======
-  const handleSave = () => {
-    onSave(config);
-    onClose();
-  };
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const addItem = (field: keyof DietConfig) => {
     if (newItem.trim() === '') return;
     if (Array.isArray(config[field])) {
@@ -325,7 +318,6 @@ export default function DietConfigPopup({
                 }`}
               >
                 <option value="Pérdida de peso">Pérdida de peso</option>
-<<<<<<< HEAD
                 <option value="Ganancia muscular">Ganancia muscular</option>
                 <option value="Mantenimiento de peso">Mantenimiento de peso</option>
                 <option value="Mejora del rendimiento deportivo">Mejora del rendimiento deportivo</option>
@@ -341,15 +333,6 @@ export default function DietConfigPopup({
                 <option value="Otro">Otro</option>
               </select>
             </div>
-=======
-                <option value="Ganancia de masa muscular">Ganancia de masa muscular</option>
-                <option value="Mantenimiento">Mantenimiento</option>
-                <option value="Rendimiento deportivo">Rendimiento deportivo</option>
-                <option value="Salud general">Salud general</option>
-              </select>
-            </div>
-
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             {/* Diet Status */}
             <div>
               <label className={`block mb-2 font-medium ${theme === 'light' ? 'text-blue-900' : 'text-white'}`}>
@@ -641,9 +624,4 @@ export default function DietConfigPopup({
         </div>
       </div>
     </div>
-<<<<<<< HEAD
   );}
-=======
-  );
-}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c

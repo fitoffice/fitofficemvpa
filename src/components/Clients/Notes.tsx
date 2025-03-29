@@ -116,11 +116,7 @@ const Notes: React.FC<NotesProps> = ({ notes = [], onAddNote, onEditNote, onDele
       {/* Input para nueva nota */}
       <div className="mb-6 space-y-2">
         <div className="flex space-x-2">
-<<<<<<< HEAD
         <select
-=======
-          <select
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value as Note['categoria'])}
             className={`
@@ -188,11 +184,7 @@ const Notes: React.FC<NotesProps> = ({ notes = [], onAddNote, onEditNote, onDele
 
       {/* Lista de notas */}
       <div className="space-y-4">
-<<<<<<< HEAD
         <AnimatePresence mode="popLayout">
-=======
-        <AnimatePresence>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           {localNotes.map((note) => (
             <motion.div
               key={note._id}

@@ -31,7 +31,6 @@ interface Note {
   version: number;
   categoria: 'general' | 'training' | 'diet' | 'medical';
 }
-<<<<<<< HEAD
 interface PanelPersonalProps {
   cliente: any;
   clientId?: string; // Añadido clientId como prop opcional
@@ -39,10 +38,6 @@ interface PanelPersonalProps {
 }
 
 const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, clientId, onEdit }) => {
-=======
-
-const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const { theme } = useTheme();
   const [editMode, setEditMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -327,13 +322,8 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                         isLoading={isLoading}
                         onSave={handleSave}
                         onChange={(data) => onEdit({ ...cliente, ...data })}
-<<<<<<< HEAD
                         clientId={clientId || cliente._id}
                       />                    </motion.div>
-=======
-                      />
-                    </motion.div>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -363,22 +353,16 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                       </h3>
                       <InfoFisicaSection
                         data={{
-<<<<<<< HEAD
                           altura: cliente.altura || 0,
                           peso: Array.isArray(cliente.peso) ? 
                             (cliente.peso.length > 0 ? cliente.peso[cliente.peso.length - 1] : 0) : 
                             (cliente.peso || 0)
-=======
-                          altura: cliente.altura,
-                          peso: cliente.peso
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                         }}
                         editMode={editMode}
                         theme={theme || 'light'}
                         errors={errors}
                         isLoading={isLoading}
                         onSave={handleSave}
-<<<<<<< HEAD
                         onChange={(data) => {
                           // If peso is an array in the client data, update the last value or add a new one
                           let updatedPeso = data.peso;
@@ -398,9 +382,6 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                           });
                         }}
                         clientId={clientId || cliente._id}
-=======
-                        onChange={(data) => onEdit({ ...cliente, ...data })}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       />
                     </motion.div>
 
@@ -417,10 +398,7 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                         isLoading={isLoading}
                         onSave={handleSave}
                         onChange={(condiciones) => onEdit({ ...cliente, condicionesMedicas: condiciones })}
-<<<<<<< HEAD
                         clientId={clientId || cliente._id}
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       />
                     </motion.div>
                   </div>
@@ -431,27 +409,17 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                       animate={{ opacity: 1, transition: { delay: 0.1 } }}
                       className="bg-white dark:bg-gray-700 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-600"
                     >
-<<<<<<< HEAD
                                              <RedesSocialesSection
                         redes={cliente.redesSociales?.reduce((acc, red) => {
                           acc[red.platform] = red.username;
                           return acc;
                         }, {} as Record<string, string>) || {}}
                         clientId={clientId || cliente._id}
-=======
-                      <RedesSocialesSection
-                        redes={{
-                          instagram: cliente.redesSociales?.instagram,
-                          facebook: cliente.redesSociales?.facebook,
-                          twitter: cliente.redesSociales?.twitter
-                        }}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                         editMode={editMode}
                         theme={theme || 'light'}
                         errors={errors}
                         isLoading={isLoading}
                         onSave={handleSave}
-<<<<<<< HEAD
                         onChange={(redes) => {
                           // Convert from object format back to array format
                           const redesArray = Object.entries(redes).map(([platform, username]) => ({
@@ -463,11 +431,6 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                       />
 
                    </motion.div>
-=======
-                        onChange={(redes) => onEdit({ ...cliente, redesSociales: redes })}
-                      />
-                    </motion.div>
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -482,10 +445,7 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                         isLoading={isLoading}
                         onSave={handleSave}
                         onChange={(direccion) => onEdit({ ...cliente, direccion })}
-<<<<<<< HEAD
                         clientId={clientId || cliente._id}
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       />
                     </motion.div>
 
@@ -497,16 +457,12 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                       <TagsSection
                         tags={cliente.tags}
                         activo={cliente.activo}
-<<<<<<< HEAD
                         estado={cliente.estado} // Added estado prop
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                         editMode={editMode}
                         theme={theme || 'light'}
                         errors={errors}
                         isLoading={isLoading}
                         onSave={handleSave}
-<<<<<<< HEAD
                         onChange={({ tags, activo, estado }) => onEdit({ 
                           ...cliente, 
                           tags, 
@@ -514,9 +470,6 @@ const PanelPersonal: React.FC<PanelPersonalProps> = ({ cliente, onEdit }) => {
                           estado // Added estado to the onChange handler
                         })}
                         clientId={clientId || cliente._id}
-=======
-                        onChange={({ tags, activo }) => onEdit({ ...cliente, tags, activo })}
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       />
                     </motion.div>
                   </div>
