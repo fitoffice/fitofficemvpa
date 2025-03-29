@@ -69,10 +69,7 @@ import { RoutineProvider } from './contexts/RoutineContext';
 import { AddLicenciaModalProvider } from './contexts/AddLicenciaModalContext';
 import { DietProvider } from './components/contexts/DietContext'; // Import the DietProvider
 import { RoutineCreationProvider } from './contexts/RoutineCreationContext';
-<<<<<<< HEAD
 import { FilterProvider } from './contexts/FilterContext';
-=======
->>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
