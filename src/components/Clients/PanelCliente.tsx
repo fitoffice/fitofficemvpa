@@ -929,11 +929,15 @@ const PanelCliente: React.FC<PanelClienteProps> = ({ clienteId, onClose }) => {
               </div>
             ) : activeSection === 'personal' ? (
               <div className="col-span-2">
+<<<<<<< HEAD
                 <PanelPersonal 
                   cliente={cliente} 
                   clientId={cliente?._id} 
                   onEdit={() => console.log('Editar información personal')} 
                 />
+=======
+                <PanelPersonal cliente={cliente} onEdit={() => console.log('Editar información personal')} />
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
               </div>
             ) : activeSection === 'chat' ? (
               <div className="col-span-2">
@@ -941,6 +945,7 @@ const PanelCliente: React.FC<PanelClienteProps> = ({ clienteId, onClose }) => {
               </div>
             ) : activeSection === 'agenda' ? (
               <div className="col-span-2">
+<<<<<<< HEAD
                 <PanelAgenda 
                   clienteId={clienteId} 
                   clienteName={cliente.nombre}
@@ -950,6 +955,10 @@ const PanelCliente: React.FC<PanelClienteProps> = ({ clienteId, onClose }) => {
                   onDeleteNote={handleDeleteNote}
                 />
                               </div>
+=======
+                <PanelAgenda clienteId={clienteId} />
+              </div>
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             ) : null}
           </div>
 

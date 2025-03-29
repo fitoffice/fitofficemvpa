@@ -69,7 +69,10 @@ import { RoutineProvider } from './contexts/RoutineContext';
 import { AddLicenciaModalProvider } from './contexts/AddLicenciaModalContext';
 import { DietProvider } from './components/contexts/DietContext'; // Import the DietProvider
 import { RoutineCreationProvider } from './contexts/RoutineCreationContext';
+<<<<<<< HEAD
 import { FilterProvider } from './contexts/FilterContext';
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -95,11 +98,18 @@ function AppContent() {
     currentPlanningId
   } = useExercise();
   console.log('Exercise Details:', {
+<<<<<<< HEAD
     exerciseId: selectedExercise?.id || 'No exercise selected',
     exerciseName: selectedExercise?.nombre || 'N/A',
     periodId: currentPeriodId || 'No period ID',
     planningId: currentPlanningId || 'No planning ID',
     periodIndex: currentPeriodIndex !== undefined ? currentPeriodIndex : 'No period index'
+=======
+    exerciseId: selectedExercise?.id,
+    periodId: currentPeriodId,
+    planningId: currentPlanningId,
+    periodIndex: currentPeriodIndex
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   });
 
 
@@ -193,6 +203,7 @@ function AppContent() {
         
         {/* Exercise Edit Modal */}
         {isExerciseModalOpen && selectedExercise && (
+<<<<<<< HEAD
     <EditExercisePopup
       open={isExerciseModalOpen}
       onClose={closeExerciseModal}
@@ -208,6 +219,22 @@ function AppContent() {
       periodoId={currentPeriodId}
     />
   )}
+=======
+          <EditExercisePopup
+            open={isExerciseModalOpen}
+            onClose={closeExerciseModal}
+            exercise={selectedExercise}
+            onSave={(updatedExercise) => {
+              // You might need to implement a global handler for saving exercise changes
+              console.log('Exercise updated:', updatedExercise);
+              closeExerciseModal();
+            }}
+            periodIndex={currentPeriodIndex}
+            planningId={currentPlanningId}
+            periodoId={currentPeriodId}
+          />
+        )}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
       </div>
       <AddLicenciaModal />
       <AddContratoModal />
@@ -251,9 +278,13 @@ function App() {
                                                   <DietProvider>
                                                     <RoutineCreationProvider>
                                                       <AlertProvider>
+<<<<<<< HEAD
                                                           <FilterProvider>
                                                             <AppContent />
                                                           </FilterProvider>
+=======
+                                                      <AppContent />
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                                                       </AlertProvider>
                                                     </RoutineCreationProvider>
                                                   </DietProvider>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+import React from 'react';
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 import { MapPin } from 'lucide-react';
 import SectionHeader from '../common/SectionHeader';
 
@@ -17,7 +21,10 @@ interface ContactoSectionProps {
   isLoading: boolean;
   onSave: () => void;
   onChange: (direccion: DireccionData) => void;
+<<<<<<< HEAD
   clientId: string;
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 const ContactoSection: React.FC<ContactoSectionProps> = ({
@@ -28,6 +35,7 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
   isLoading,
   onSave,
   onChange,
+<<<<<<< HEAD
   clientId,
 }) => {
   // Add local state to track input values
@@ -85,6 +93,14 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
     } catch (error) {
       console.error('Error saving address:', error);
     }
+=======
+}) => {
+  const handleChange = (field: keyof DireccionData, value: string) => {
+    onChange({
+      ...direccion,
+      [field]: value
+    });
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   };
 
   const inputClasses = `
@@ -104,7 +120,11 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
   const errorClasses = "text-sm text-red-500 mt-1 animate-pulse";
 
   const getGoogleMapsUrl = () => {
+<<<<<<< HEAD
     const address = `${localDireccion.calle}, ${localDireccion.ciudad}, ${localDireccion.codigoPostal}, ${localDireccion.pais}`;
+=======
+    const address = `${direccion.calle}, ${direccion.ciudad}, ${direccion.codigoPostal}, ${direccion.pais}`;
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   };
 
@@ -122,7 +142,11 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
         Icon={MapPin}
         theme={theme}
         editMode={editMode}
+<<<<<<< HEAD
         onSave={saveDireccion}
+=======
+        onSave={onSave}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         isLoading={isLoading}
         iconColor="emerald"
       />
@@ -133,13 +157,21 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
             {editMode ? (
               <input
                 type="text"
+<<<<<<< HEAD
                 value={localDireccion.calle || ''}
+=======
+                value={direccion.calle}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 onChange={e => handleChange('calle', e.target.value)}
                 className={`${inputClasses} ${errors?.calle ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="Nombre de la calle y número"
               />
             ) : (
+<<<<<<< HEAD
               <p className="text-lg">{localDireccion.calle}</p>
+=======
+              <p className="text-lg">{direccion.calle}</p>
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.calle && (
               <p className={errorClasses}>{errors.calle}</p>
@@ -151,13 +183,21 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
             {editMode ? (
               <input
                 type="text"
+<<<<<<< HEAD
                 value={localDireccion.ciudad || ''}
+=======
+                value={direccion.ciudad}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 onChange={e => handleChange('ciudad', e.target.value)}
                 className={`${inputClasses} ${errors?.ciudad ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="Ciudad"
               />
             ) : (
+<<<<<<< HEAD
               <p className="text-lg">{localDireccion.ciudad}</p>
+=======
+              <p className="text-lg">{direccion.ciudad}</p>
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.ciudad && (
               <p className={errorClasses}>{errors.ciudad}</p>
@@ -169,13 +209,21 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
             {editMode ? (
               <input
                 type="text"
+<<<<<<< HEAD
                 value={localDireccion.codigoPostal || ''}
+=======
+                value={direccion.codigoPostal}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 onChange={e => handleChange('codigoPostal', e.target.value)}
                 className={`${inputClasses} ${errors?.codigoPostal ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="Código Postal"
               />
             ) : (
+<<<<<<< HEAD
               <p className="text-lg">{localDireccion.codigoPostal}</p>
+=======
+              <p className="text-lg">{direccion.codigoPostal}</p>
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.codigoPostal && (
               <p className={errorClasses}>{errors.codigoPostal}</p>
@@ -187,13 +235,21 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
             {editMode ? (
               <input
                 type="text"
+<<<<<<< HEAD
                 value={localDireccion.pais || ''}
+=======
+                value={direccion.pais}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                 onChange={e => handleChange('pais', e.target.value)}
                 className={`${inputClasses} ${errors?.pais ? 'border-red-500 focus:border-red-500 focus:ring-red-500/50' : ''}`}
                 placeholder="País"
               />
             ) : (
+<<<<<<< HEAD
               <p className="text-lg">{localDireccion.pais}</p>
+=======
+              <p className="text-lg">{direccion.pais}</p>
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             )}
             {errors?.pais && (
               <p className={errorClasses}>{errors.pais}</p>
@@ -201,7 +257,11 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
           </div>
         </div>
 
+<<<<<<< HEAD
         {!editMode && Object.values(localDireccion).every(value => value) && (
+=======
+        {!editMode && Object.values(direccion).every(value => value) && (
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           <div className="mt-6">
             <a
               href={getGoogleMapsUrl()}
@@ -225,4 +285,8 @@ const ContactoSection: React.FC<ContactoSectionProps> = ({
   );
 };
 
+<<<<<<< HEAD
 export default ContactoSection;
+=======
+export default ContactoSection;
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c

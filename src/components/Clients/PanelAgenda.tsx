@@ -14,11 +14,16 @@ import {
   BookOpen,
   Dumbbell,
   Apple,
+<<<<<<< HEAD
   StickyNote,
   DollarSign,
   Search,
   Edit2,
   Save,
+=======
+  DollarSign,
+  Search,
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   ChevronRight,
 } from 'lucide-react';
 import Button from '../Common/Button';
@@ -28,11 +33,14 @@ import EventoPopup from './EventoPopup';
 
 interface PanelAgendaProps {
   clienteId: string;
+<<<<<<< HEAD
   clienteName?: string;
   notas?: Note[];
   onAddNote?: (note: Omit<Note, '_id'>) => void;
   onEditNote?: (id: string, note: Partial<Note>) => void;
   onDeleteNote?: (id: string) => void;
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 interface Evento {
@@ -45,6 +53,7 @@ interface Evento {
   esDelEntrenador: boolean;
 }
 
+<<<<<<< HEAD
 interface Note {
   _id: string;
   texto: string;
@@ -52,6 +61,8 @@ interface Note {
   version: number;
   categoria: 'general' | 'training' | 'diet' | 'medical';
 }
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 interface Nota {
   id: string;
   fecha: Date;
@@ -60,6 +71,7 @@ interface Nota {
   tags: string[];
   categoria: 'nutricion' | 'entrenamiento' | 'finanzas' | 'general';
 }
+<<<<<<< HEAD
 const categoryColors = {
   general: 'bg-gray-500',
   training: 'bg-blue-500',
@@ -88,6 +100,15 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
   const [activeTab, setActiveTab] = useState<'calendario' | 'notas'>('calendario');
   const [eventos, setEventos] = useState<Evento[]>([]);
   const [notasLocales, setNotasLocales] = useState<Nota[]>([]);
+=======
+
+const PanelAgenda: React.FC<PanelAgendaProps> = ({ clienteId }) => {
+  const { theme } = useTheme();
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [activeTab, setActiveTab] = useState<'calendario' | 'notas'>('calendario');
+  const [eventos, setEventos] = useState<Evento[]>([]);
+  const [notas, setNotas] = useState<Nota[]>([]);
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const [filtroCategoria, setFiltroCategoria] = useState<string>('todos');
   const [mostrarFormularioEvento, setMostrarFormularioEvento] = useState(false);
   const [mostrarFormularioNota, setMostrarFormularioNota] = useState(false);
@@ -106,6 +127,7 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
     tags: [],
     categoria: 'general',
   });
+<<<<<<< HEAD
   const [newNote, setNewNote] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Note['categoria']>('general');
   const [editingNote, setEditingNote] = useState<string | null>(null);
@@ -115,6 +137,8 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
   useEffect(() => {
     setLocalNotes(notas);
   }, [notas]);
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   const categoriasNotas = [
     { valor: 'nutricion', icono: <Apple size={18} />, color: 'bg-green-100 text-green-600' },
@@ -129,6 +153,7 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
     { valor: 'finanzas', color: 'bg-yellow-500' },
     { valor: 'otro', color: 'bg-purple-500' },
   ];
+<<<<<<< HEAD
   const handleAddNote = () => {
     if (newNote.trim() && onAddNote) {
       const newNoteData = {
@@ -186,6 +211,8 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
       return 'Fecha inválida';
     }
   };
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   const filtrarEventosPorFecha = (fecha: Date) => {
     return eventos.filter(evento => 
@@ -194,7 +221,11 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
   };
 
   const filtrarNotas = () => {
+<<<<<<< HEAD
     let notasFiltradas = notasLocales;
+=======
+    let notasFiltradas = notas;
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
     
     if (filtroCategoria !== 'todos') {
       notasFiltradas = notasFiltradas.filter(nota => nota.categoria === filtroCategoria);
@@ -211,6 +242,10 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
     
     return notasFiltradas;
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   const agregarEvento = () => {
     if (nuevoEvento.titulo && nuevoEvento.hora) {
       const eventoCompleto: Evento = {
@@ -243,7 +278,11 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
         tags: nuevaNota.tags || [],
         categoria: nuevaNota.categoria || 'general',
       };
+<<<<<<< HEAD
       setNotasLocales([...notasLocales, notaCompleta]);
+=======
+      setNotas([...notas, notaCompleta]);
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
       setMostrarFormularioNota(false);
       setNuevaNota({
         fecha: new Date(),
@@ -393,13 +432,18 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
           </motion.div>
         )}
 
+<<<<<<< HEAD
 {activeTab === 'notas' && (
+=======
+        {activeTab === 'notas' && (
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="notas-container p-4"
           >
+<<<<<<< HEAD
             {/* Sección de notas del cliente (nuevo componente similar a Notes.tsx) */}
             <div className={`p-6 rounded-xl shadow-lg ${isDark ? 'bg-gray-800/50' : 'bg-white'} transition-all duration-300 mb-6`}>
               <div className="flex items-center justify-between mb-6">
@@ -563,6 +607,103 @@ const PanelAgenda: React.FC<PanelAgendaProps> = ({
                 </AnimatePresence>
               </div>
             </div>        
+=======
+            <div className="header-notas flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+              <div className="search-bar w-full md:w-1/3 relative">
+                <input
+                  type="text"
+                  placeholder="Buscar notas..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <Search size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+              
+              <div className="filtros-categoria flex flex-wrap gap-2 justify-center">
+                <button
+                  className={`filtro-btn px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                    filtroCategoria === 'todos' 
+                      ? 'bg-blue-500 text-white' 
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  }`}                  onClick={() => setFiltroCategoria('todos')}
+                  >
+                    Todas
+                  </button>
+                  {categoriasNotas.map(cat => (
+                    <button
+                      key={cat.valor}
+                      className={`filtro-btn px-3 py-1 rounded-full text-sm font-medium transition-all flex items-center ${
+                        filtroCategoria === cat.valor 
+                          ? `${cat.color.split(' ')[0].replace('bg-', 'bg-')} ${cat.color.split(' ')[1]}`
+                          : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                      }`}
+                      onClick={() => setFiltroCategoria(cat.valor)}
+                    >
+                      <span className="mr-1">{cat.icono}</span>
+                      {cat.valor.charAt(0).toUpperCase() + cat.valor.slice(1)}
+                    </button>
+                  ))}
+                </div>
+                
+                <Button
+                  onClick={() => setMostrarFormularioNota(true)}
+                  className="btn-agregar bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition-all shadow-md"
+                >
+                  <Plus size={18} className="mr-2" />
+                  Nueva Nota
+                </Button>
+              </div>
+  
+              <div className="lista-notas grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filtrarNotas().length > 0 ? (
+                  filtrarNotas().map(nota => {
+                    const categoriaInfo = categoriasNotas.find(cat => cat.valor === nota.categoria);
+                    return (
+                      <motion.div
+                        key={nota.id}
+                        className={`nota-card rounded-lg p-4 bg-white dark:bg-gray-700 shadow-sm hover:shadow-md transition-all border-t-4 ${categoriaInfo?.color.split(' ')[0]}`}
+                        layout
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        whileHover={{ y: -5 }}
+                      >
+                        <div className="nota-header flex justify-between items-start mb-2">
+                          <h4 className="text-lg font-bold text-gray-800 dark:text-white">{nota.titulo}</h4>
+                          <span className={`categoria-badge ${categoriaInfo?.color} p-1 rounded-md`}>
+                            {categoriaInfo?.icono}
+                          </span>
+                        </div>
+                        <p className="nota-contenido text-gray-600 dark:text-gray-300 mb-3 line-clamp-3">{nota.contenido}</p>
+                        {nota.tags.length > 0 && (
+                          <div className="nota-tags flex flex-wrap gap-1 mb-2">
+                            {nota.tags.map(tag => (
+                              <span key={tag} className="tag bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded-full flex items-center">
+                                <Tag size={12} className="mr-1" />
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        <div className="nota-fecha text-xs text-gray-500 dark:text-gray-400 mt-2">
+                          {new Date(nota.fecha).toLocaleDateString()}
+                        </div>
+                      </motion.div>
+                    );
+                  })
+                ) : (
+                  <div className="empty-state col-span-full p-8 text-center">
+                    <div className="empty-icon mb-4 text-gray-300 dark:text-gray-600 flex justify-center">
+                      <BookOpen size={64} />
+                    </div>
+                    <h4 className="text-lg font-medium text-gray-500 dark:text-gray-400">No hay notas disponibles</h4>
+                    <p className="text-gray-400 dark:text-gray-500 mt-2">
+                      {searchTerm ? 'No se encontraron resultados para tu búsqueda' : 'Haz clic en "Nueva Nota" para crear una'}
+                    </p>
+                  </div>
+                )}
+              </div>
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             </motion.div>
           )}
         </AnimatePresence>

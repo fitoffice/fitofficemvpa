@@ -20,7 +20,10 @@ interface PaymentPlanInput {
   duracion: number;
   detalles: string;
   servicio: string;
+<<<<<<< HEAD
   pagoUnico: boolean; // New field for one-time payment
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 }
 
 const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
@@ -38,7 +41,10 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
     duracion: 12,
     detalles: '',
     servicio: servicioId,
+<<<<<<< HEAD
     pagoUnico: false, // Initialize as false
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
   });
 
   useEffect(() => {
@@ -66,13 +72,18 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
+<<<<<<< HEAD
     const { name, value, type } = e.target;
     const isCheckbox = type === 'checkbox';
     const fieldValue = isCheckbox ? (e.target as HTMLInputElement).checked : value;
+=======
+    const { name, value } = e.target;
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
     setFormData((prev) => {
       const newData = {
         ...prev,
+<<<<<<< HEAD
         [name]: isCheckbox 
           ? fieldValue 
           : (name === 'precio' || name === 'duracion' ? Number(value) : value),
@@ -90,6 +101,13 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
 
       // Si cambia la frecuencia o la duración, actualizar la duración en meses
       if ((name === 'frecuencia' || name === 'duracion') && !prev.pagoUnico) {
+=======
+        [name]: name === 'precio' || name === 'duracion' ? Number(value) : value,
+      };
+
+      // Si cambia la frecuencia o la duración, actualizar la duración en meses
+      if (name === 'frecuencia' || name === 'duracion') {
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
         const mesesPorFrecuencia = getFrecuenciaMeses(newData.frecuencia);
         newData.duracion = Number(name === 'duracion' ? value : prev.duracion) * mesesPorFrecuencia;
       }
@@ -319,6 +337,7 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
                     </div>
                   </div>
 
+<<<<<<< HEAD
                   {/* Add the Pago Único checkbox after the nombre field */}
                   <div className="group transition-all duration-200 hover:scale-[1.01]">
                     <div className="flex items-center">
@@ -350,15 +369,21 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
                     </p>
                   </div>
 
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                   <div className="grid grid-cols-2 gap-6">
                     <div className="group transition-all duration-200 hover:scale-[1.01]">
                       <label
                         htmlFor="frecuencia"
                         className={`block text-sm font-semibold mb-2 ${
                           isDarkMode ? 'text-gray-200' : 'text-gray-700'
+<<<<<<< HEAD
                         } tracking-wide group-hover:text-blue-500 transition-colors duration-200 ${
                           formData.pagoUnico ? 'opacity-50' : ''
                         }`}
+=======
+                        } tracking-wide group-hover:text-blue-500 transition-colors duration-200`}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       >
                         Frecuencia
                       </label>
@@ -368,20 +393,30 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
                         value={formData.frecuencia}
                         onChange={handleChange}
                         required
+<<<<<<< HEAD
                         disabled={formData.pagoUnico}
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                         className={`mt-1 block w-full px-4 py-3.5 rounded-xl shadow-sm ${
                           isDarkMode 
                             ? 'bg-gray-800/80 text-white border-gray-700' 
                             : 'bg-white/80 text-gray-900 border-gray-200'
+<<<<<<< HEAD
                         } backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none border-2 hover:border-blue-400 ${
                           formData.pagoUnico ? 'opacity-50 cursor-not-allowed' : ''
                         }`}
+=======
+                        } backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none border-2 hover:border-blue-400`}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       >
                         <option value="Mensual">Mensual</option>
                         <option value="Trimestral">Trimestral</option>
                         <option value="Semestral">Semestral</option>
                         <option value="Anual">Anual</option>
+<<<<<<< HEAD
                         {formData.pagoUnico && <option value="Único">Único</option>}
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       </select>
                     </div>
 
@@ -390,9 +425,13 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
                         htmlFor="duracion"
                         className={`block text-sm font-semibold mb-2 ${
                           isDarkMode ? 'text-gray-200' : 'text-gray-700'
+<<<<<<< HEAD
                         } tracking-wide group-hover:text-blue-500 transition-colors duration-200 ${
                           formData.pagoUnico ? 'opacity-50' : ''
                         }`}
+=======
+                        } tracking-wide group-hover:text-blue-500 transition-colors duration-200`}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       >
                         Duración
                       </label>
@@ -400,15 +439,23 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
                         type="number"
                         name="duracion"
                         id="duracion"
+<<<<<<< HEAD
                         value={formData.pagoUnico ? 1 : formData.duracion / getFrecuenciaMeses(formData.frecuencia)}
                         onChange={handleChange}
                         required
                         min="1"
                         disabled={formData.pagoUnico}
+=======
+                        value={formData.duracion / getFrecuenciaMeses(formData.frecuencia)}
+                        onChange={handleChange}
+                        required
+                        min="1"
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                         className={`mt-1 block w-full px-4 py-3.5 rounded-xl shadow-sm ${
                           isDarkMode 
                             ? 'bg-gray-800/80 text-white border-gray-700' 
                             : 'bg-white/80 text-gray-900 border-gray-200'
+<<<<<<< HEAD
                         } backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none border-2 hover:border-blue-400 ${
                           formData.pagoUnico ? 'opacity-50 cursor-not-allowed' : ''
                         }`}
@@ -417,6 +464,14 @@ const NuevoPaymentPlanPopup: React.FC<NuevoPaymentPlanPopupProps> = ({
                         isDarkMode ? 'text-gray-400' : 'text-gray-500'
                       } mt-2 block italic ${formData.pagoUnico ? 'opacity-50' : ''}`}>
                         Total en meses: {formData.pagoUnico ? 1 : formData.duracion}
+=======
+                        } backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none border-2 hover:border-blue-400`}
+                      />
+                      <span className={`text-sm ${
+                        isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                      } mt-2 block italic`}>
+                        Total en meses: {formData.duracion}
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
                       </span>
                     </div>
                   </div>

@@ -318,6 +318,7 @@ const CrearCuestionario: React.FC<CrearCuestionarioProps> = ({
     setTitulo(plantilla.titulo);
     setPreguntasSeleccionadas(plantilla.preguntas);
   };
+<<<<<<< HEAD
   const handleAgregarOpcion = () => {
     if (nuevaOpcion.texto.trim() && nuevaOpcion.valor.trim()) {
       setOpcionesPregunta([...opcionesPregunta, { ...nuevaOpcion }]);
@@ -330,6 +331,8 @@ const CrearCuestionario: React.FC<CrearCuestionarioProps> = ({
     setOpcionesPregunta(opcionesPregunta.filter((_, i) => i !== index));
   };
 
+=======
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
 
   return (
     <motion.div

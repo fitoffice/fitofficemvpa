@@ -81,7 +81,11 @@ const ClientListHeader: React.FC<ClientListHeaderProps> = ({
                   : 'bg-gray-200 text-gray-600'
               }`}
             >
+<<<<<<< HEAD
    <List className="w-5 h-5" />
+=======
+              <Grid className="w-5 h-5" />
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             </button>
             <button
               onClick={() => setViewMode('simple')}
@@ -93,8 +97,12 @@ const ClientListHeader: React.FC<ClientListHeaderProps> = ({
                   : 'bg-gray-200 text-gray-600'
               }`}
             >
+<<<<<<< HEAD
                             <Grid className="w-5 h-5" />
 
+=======
+              <List className="w-5 h-5" />
+>>>>>>> b8373c7173fdde2697439aec9aabf8a811bb037c
             </button>
           </div>
 
